@@ -2,6 +2,7 @@
 var mongoose = require("mongoose");
 const { Schema } = mongoose;
 const { ObjectId } = Schema;
+// const ProductCart = require("../models/productCart");
 
 const ProductCartSchema = new Schema({
   product: {
@@ -13,7 +14,14 @@ const ProductCartSchema = new Schema({
   price: Number,
 });
 
-const ProductCart = mongoose.model("ProductCart", ProductCartSchema);
+let ProductCart;
+try {
+  ProductCart = mongoose.model("ProductCart");
+} catch (error) {
+  ProductCart = mongoose.model("ProductCart", ProductCartSchema);
+}
+
+// const ProductCart = mongoose.model("ProductCart", ProductCartSchema);
 // module.exports =  mongoose.model.ProductCart || mongoose.model("ProductCart", ProductCartSchema);
 
 const OrderSchema = new Schema(
@@ -36,7 +44,13 @@ const OrderSchema = new Schema(
   { timestamps: true }
 );
 
-const Order = mongoose.model("Order", OrderSchema);
+let order;
+try {
+  Order = mongoose.model("Order");
+} catch (error) {
+  Order = mongoose.model("Order", OrderSchema);
+}
+// const Order = mongoose.model("Order", OrderSchema);
 // module.exports = mongoose.model("Order", OrderSchema);
 
 module.exports = { Order, ProductCart };
