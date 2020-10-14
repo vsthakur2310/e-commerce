@@ -7,11 +7,11 @@ router.post(
   "/signup",
   [
     check("name")
-      .isLength({ min: 5 })
-      .withMessage("name should be atleast 3 char"),
+      .isLength({ min: 2 })
+      .withMessage("name should be atleast 2 char"),
     check("email").isEmail().withMessage("enter a valid email"),
     check("password")
-      .isLength({ min: 5 })
+      .isLength({ min: 3 })
       .withMessage("password should be atleast 3 char"),
   ],
   signup
