@@ -30,7 +30,6 @@ function Signup() {
           setvalues({
             ...values,
             name: "",
-            lastname: "",
             email: "",
             password: "",
             error: "",
@@ -47,22 +46,12 @@ function Signup() {
         <div className="col-md-6 offset-sm-3 text-left">
           <form>
             <div className="form-group">
-              <label className="text-light">First Name</label>
+              <label className="text-light">Name</label>
               <input
                 className="form-control"
                 onChange={handleChange("name")}
                 type="text"
                 value={name}
-              />
-            </div>
-
-            <div className="form-group">
-              <label className="text-light">Last Name</label>
-              <input
-                className="form-control"
-                onChange={handleChange("lastname")}
-                type="text"
-                value={lastname}
               />
             </div>
 

@@ -68,17 +68,22 @@ exports.getProduct = (req, res) => {
   return res.json(req.product);
 };
 
+
+//middleware
 exports.photo = (req, res, next) => {
   if (req.product.photo.data) {
-    res.set("Content-Type", req.product.photo.contentType0);
+    res.set("Content-Type", req.product.photo.contentType);
     return res.send(req.product.photo.data);
   }
   next();
 };
 
+
+
+// delete controllers
 exports.deleteProduct = (req, res) => {
   let product = req.product;
-  product.remove((Err, deletedProduct) => {
+  product.remove((err, deletedProduct) => {
     if (err) {
       return res.status(400).json({
         error: " Failed to delete the product",
