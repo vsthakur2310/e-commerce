@@ -1,7 +1,7 @@
 const User = require("../models/user");
 const { check, validationResult } = require("express-validator");
 var jwt = require("jsonwebtoken");
-var expressjwt = require("express-jwt");
+var expressJwt = require("express-jwt");
 
 exports.signup = (req, res) => {
   const errors = validationResult(req);
@@ -70,7 +70,7 @@ exports.signout = (req, res) => {
 };
 
 //protected routes
-exports.isSignedIn = expressjwt({
+exports.isSignedIn = expressJwt({
   secret: process.env.SECRET,
   userProperty: "auth",
 });

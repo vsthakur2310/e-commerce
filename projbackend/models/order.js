@@ -44,7 +44,7 @@ const OrderSchema = new Schema(
   { timestamps: true }
 );
 
-let order;
+let Order;
 try {
   Order = mongoose.model("Order");
 } catch (error) {
@@ -54,3 +54,10 @@ try {
 // module.exports = mongoose.model("Order", OrderSchema);
 
 module.exports = { Order, ProductCart };
+
+
+function printprops(o)
+{
+  for(var p in o )
+  console.log(p+":" + o[p] + "\n")
+}
